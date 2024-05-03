@@ -43,7 +43,10 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter{
 
 	@Override
 	protected void doFilterInternal( @NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain chain) throws ServletException, IOException {
-
+		System.out.println( "-------->>>-------->>> Filtro"  );
+		System.out.println( "-------->>>-------->>> Filtro"  );
+		System.out.println( "-------->>>-------->>> Filtro"  );
+		System.out.println( "-------->>>-------->>> Filtro"  );
 		try {
 			if (existeJWTToken(request)) {
 				Claims claims = validarToken(request);

@@ -20,12 +20,6 @@ public class UsuarioController {
     @Autowired
     UsuarioService usuarioService;
 
-    // @CrossOrigin
-    // @GetMapping(  produces = MediaType.APPLICATION_JSON_VALUE )
-    // public UsuarioDTO autenticar( @RequestHeader String Authorization ) throws Exception{
-    //     System.out.println( Authorization );
-    //     return null;
-    // }
 
     @CrossOrigin
     @GetMapping(  produces = MediaType.APPLICATION_JSON_VALUE )
