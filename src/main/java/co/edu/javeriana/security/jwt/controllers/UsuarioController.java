@@ -5,6 +5,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,9 +23,9 @@ public class UsuarioController {
 
 
     @CrossOrigin
-    @GetMapping(  produces = MediaType.APPLICATION_JSON_VALUE )
-    public UsuarioDTO autenticar( Authentication authentication ) throws Exception{
-        System.out.println( authentication );
+    @PostMapping(  produces = MediaType.APPLICATION_JSON_VALUE )
+    public UsuarioDTO usuario( Authentication authentication ) throws Exception{
+        System.out.println( authentication.getName() );
         return usuarioService.autorizacion(authentication);
     }
 

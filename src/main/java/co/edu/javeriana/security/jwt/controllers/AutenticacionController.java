@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import co.edu.javeriana.security.jwt.dto.TokenDTO;
 import co.edu.javeriana.security.jwt.dto.UsuarioDTO;
 import co.edu.javeriana.security.jwt.service.JWTTokenService;
 
@@ -21,11 +22,11 @@ public class AutenticacionController {
 
     @CrossOrigin
     @PostMapping(  value = "/autenticar", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String autenticar( @RequestBody UsuarioDTO usuarioDTO ){
-        System.out.println( usuarioDTO.getNombres() );
-        System.out.println( usuarioDTO.getApellidos() );
-        return jwtTokenService.generarToken(usuarioDTO);
+    public TokenDTO autenticar( @RequestBody UsuarioDTO usuarioDTO ){
+        return new TokenDTO(jwtTokenService.generarToken(usuarioDTO), usuarioDTO);
     }
+
+
 
 
     @CrossOrigin
